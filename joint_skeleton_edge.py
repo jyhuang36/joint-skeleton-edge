@@ -481,7 +481,7 @@ def visualize(model, visualize_dataset):
     sk_out = sk_out/sk_out.max()
     
     edge_out = (5 * edgef + y1edge + y2edge + y3edge + y4edge + y5edge)/10
-    edge_out = edge_out[0][0].data.numpy()
+    edge_out = edge_out[0][0].cpu().data.numpy()
     edge_out = edge_out/edge_out.max()
     
     scale_lst = [sk_out, edge_out]
@@ -528,6 +528,7 @@ def test(model, test_dataset):
         sk_out = sk_out/sk_out.max()
         
         edge_out = (5 * edgef + y1edge + y2edge + y3edge + y4edge + y5edge)/10
+        edge_out = edge_out[0][0].cpu().data.numpy()
         edge_out = edge_out/edge_out.max()
         
         scipy.misc.imsave('results/sk/' + name[0:-4] + '.png', sk_out)
