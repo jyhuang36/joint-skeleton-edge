@@ -229,8 +229,7 @@ class SkeletonTrainingSet(Dataset):
         self.threshold = threshold
         
     def __len__(self):
-        #return len(self.lst)
-        return 1
+        return len(self.lst)
     
     def __getitem__(self, index):
         filenames = self.lst[index].split(" ")
